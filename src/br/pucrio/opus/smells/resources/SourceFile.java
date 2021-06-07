@@ -1,6 +1,9 @@
 package br.pucrio.opus.smells.resources;
 
 import java.io.File;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +14,9 @@ import br.pucrio.opus.smells.ast.visitors.TypeDeclarationCollector;
 
 public class SourceFile {
 
-	private File file;
+	private transient File file;
+
+	private String fileRelativePath;
 	
 	private transient CompilationUnit compilationUnit;
 	
@@ -19,6 +24,8 @@ public class SourceFile {
 	
 	public SourceFile(File file, CompilationUnit compilationUnit) {
 		this.file = file;
+		Path cwd = FileSystems.getDefault().getPath("").toAbsolutePath();
+		this.fileRelativePath = cwd.relativize(Paths.get(file.getPath())).toString();
 		this.compilationUnit = compilationUnit;
 		this.searchForTypes();
 	}
@@ -41,6 +48,8 @@ public class SourceFile {
 	public File getFile() {
 		return file;
 	}
+
+	public String getFileRelativePath() { return fileRelativePath; }
 
 	public CompilationUnit getCompilationUnit() {
 		return compilationUnit;

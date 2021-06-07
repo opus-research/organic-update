@@ -19,6 +19,9 @@ public class FieldAccessCollector extends CollectorVisitor<IBinding> {
 		 * checks if the variable is a field.
 		 */
 		if (binding != null && binding.getKind() == IBinding.VARIABLE) {
+			if (binding.getKey().startsWith("Ljava")){
+				return true;
+			}
 			if (!wasAlreadyCollected(binding)) {
 				this.addCollectedNode(binding);
 			}

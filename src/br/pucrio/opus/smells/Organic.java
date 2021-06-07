@@ -10,8 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.cli.ParseException;
-import org.eclipse.equinox.app.IApplication;
-import org.eclipse.equinox.app.IApplicationContext;
+
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -33,7 +32,7 @@ import br.pucrio.opus.smells.resources.SourceFilesLoader;
 import br.pucrio.opus.smells.resources.Type;
 import br.pucrio.opus.smells.util.OrganicOptions;
 
-public class Organic implements IApplication {
+public class Organic {
 
 	private void collectMethodMetrics(Type type) {
 		for (Method method: type.getMethods()) {
@@ -71,9 +70,7 @@ public class Organic implements IApplication {
 		SourceFilesLoader compUnitLoader = new SourceFilesLoader(sourceLoader);
 		List<SourceFile> sourceFiles = compUnitLoader.getLoadedSourceFiles();
 		for (SourceFile sourceFile : sourceFiles) {
-			for (Type type : sourceFile.getTypes()) {
-				allTypes.add(type);
-			}
+			allTypes.addAll(sourceFile.getTypes());
 		}
 		return allTypes;
 	}
@@ -134,9 +131,7 @@ public class Organic implements IApplication {
 		return finder.findAll();
 	}
 
-	@Override
-	public Object start(IApplicationContext context) throws Exception {
-		String[] args = (String[])context.getArguments().get("application.args");
+	public int start(String[] args) throws IOException {
 		OrganicOptions options = OrganicOptions.getInstance();
 		try {
 			options.parse(args);
@@ -163,12 +158,12 @@ public class Organic implements IApplication {
 		}
 		
 		System.out.println(new Date());
-		return EXIT_OK;
+		return 0;
 	}
 
-	@Override
-	public void stop() {
-
+	public static void main(String[] args) throws IOException {
+		Organic instance = new Organic();
+		instance.start(args);
 	}
 
 }

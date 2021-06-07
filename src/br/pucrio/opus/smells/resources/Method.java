@@ -74,9 +74,11 @@ public class Method extends Resource {
 		MethodInvocationVisitor invocationVisitor = new MethodInvocationVisitor();
 		node.accept(invocationVisitor);
 		for (IMethodBinding methodBinding : invocationVisitor.getCalls()) {
-			graph.addMethodCall(thisBinding, methodBinding);
+			if (!(methodBinding.getDeclaringClass().getQualifiedName().startsWith("java"))){
+				graph.addMethodCall(thisBinding, methodBinding);
+			}
 		}
-		
+
 	}
 	
 	public Method(SourceFile sourceFile, MethodDeclaration node) {

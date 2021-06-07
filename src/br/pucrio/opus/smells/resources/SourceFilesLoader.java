@@ -46,7 +46,7 @@ public class SourceFilesLoader {
 		ASTBuilder builder = new ASTBuilder(sourcePaths);
 		ASTParser parser = builder.create();
 		SourceFileASTRequestor requestor = new SourceFileASTRequestor();
-		parser.createASTs(files, null, new String[] {},requestor, new ConsoleProgressMonitor());
+		parser.createASTs(files, null, new String[0], requestor, new ConsoleProgressMonitor());
 		this.sourceFiles = requestor.getSourceFiles();		
 	}
 	

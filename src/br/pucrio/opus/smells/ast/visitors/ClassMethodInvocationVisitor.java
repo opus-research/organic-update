@@ -47,6 +47,10 @@ public class ClassMethodInvocationVisitor extends ASTVisitor {
 		if (typeBinding == null) { // if we were not able to bind it, just discard.
 			return true;
 		}
+
+		if (typeBinding.getQualifiedName().startsWith("java")){
+			return true;
+		}
 		
 		//increments the number of calls to the binded class
 		Integer calls = methodsCalls.get(typeBinding);

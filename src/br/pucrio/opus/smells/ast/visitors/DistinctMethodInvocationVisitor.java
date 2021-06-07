@@ -56,6 +56,9 @@ public class DistinctMethodInvocationVisitor extends ASTVisitor {
 		if (typeBinding == null) { // if we were not able to bind it, just discard.
 			return true;
 		}
+		if (typeBinding.getQualifiedName().startsWith("java")){
+			return true;
+		}
 
 		this.registerCall(typeBinding, methodBinding);
 		return true;
