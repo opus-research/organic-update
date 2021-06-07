@@ -17,5 +17,6 @@ public enum SmellName {
 	BrainClass,
 	ShotgunSurgery,
 	BrainMethod,
-	DataClass 
+	DataClass,
+	InflatedException
 }

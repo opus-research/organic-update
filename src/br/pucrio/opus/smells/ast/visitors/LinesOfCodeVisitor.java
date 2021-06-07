@@ -270,5 +270,7 @@ public class LinesOfCodeVisitor extends ASTVisitor {
 		loc++;
 		return true;
 	}
+
+
 	
 }

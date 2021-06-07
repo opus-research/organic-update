@@ -11,6 +11,7 @@ public class MethodLevelSmellDetector extends CompositeSmellDetector {
 		super.addDetector(new IntensiveCoupling());
 		super.addDetector(new ShotgunSurgery());
 		super.addDetector(new BrainMethod());
+		super.addDetector(new InflatedException());
 	}
 
 	@Override

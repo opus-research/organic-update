@@ -1,17 +1,7 @@
 package br.pucrio.opus.smells.metrics;
 
+import br.pucrio.opus.smells.metrics.calculators.*;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-
-import br.pucrio.opus.smells.metrics.calculators.ChangingClassesCalculator;
-import br.pucrio.opus.smells.metrics.calculators.ChangingMethodsCalculator;
-import br.pucrio.opus.smells.metrics.calculators.CouplingDispersionCalculator;
-import br.pucrio.opus.smells.metrics.calculators.CouplingIntensityCalculator;
-import br.pucrio.opus.smells.metrics.calculators.CyclomaticComplexityCalculator;
-import br.pucrio.opus.smells.metrics.calculators.MaxCallChainCalculator;
-import br.pucrio.opus.smells.metrics.calculators.MaxNestingCalculator;
-import br.pucrio.opus.smells.metrics.calculators.MethodLOCCalculator;
-import br.pucrio.opus.smells.metrics.calculators.MethodParameterCountCalculator;
-import br.pucrio.opus.smells.metrics.calculators.NOAVCalculator;
 
 public class MethodMetricValueCollector extends MetricValueCollector {
 
@@ -26,7 +16,13 @@ public class MethodMetricValueCollector extends MetricValueCollector {
 		addCalculator(new ChangingClassesCalculator());
 		addCalculator(new MaxNestingCalculator());
 		addCalculator(new ChangingMethodsCalculator());
+		addCalculator(new NumberOfTryCalculator());
+		addCalculator(new NumberOfCatchCalculator());
+		addCalculator(new NumberOfFinallyCalculator());
+		addCalculator(new NumberOfThrowCalculator());
+		addCalculator(new TryNoCatchFinallyCalculator());
+		addCalculator(new ThrownExceptionTypesCalculator());
+		addCalculator(new DummyExceptionHandlerCalculator());
+		addCalculator(new ExceptionalLOCCalculator());
 	}
-	
-	
 }

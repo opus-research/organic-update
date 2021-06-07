@@ -21,7 +21,15 @@ public enum MetricName {
 	ChangingMethods("ChangingMethods"),
 	LCOM("LackOfCohesionOfMethods"),
 	LCOM2,
-	LCOM3;
+	LCOM3,
+	TryCount("NumberOfTryStatements"),
+	CatchCount("NumberOfCatchStatements"),
+	FinallyCount("NumberOfFinallyStatements"),
+	ThrowCount("NumberOfThrowStatements"),
+	TryNoCatchFinallyCount("NumberOfTryStatementsWithNoCatchAndFinally"),
+	ThrownExceptionTypesCount,
+	DummyExceptionHandlerCount("NumberOfDummyExceptionHandlers"),
+	ExceptionalLOC;
 	
 	private String label;
 	
