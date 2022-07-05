@@ -7,7 +7,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.pucrio.opus.smells.ast.visitors.EnumDeclarationCollector;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import br.pucrio.opus.smells.ast.visitors.TypeDeclarationCollector;
@@ -38,6 +40,14 @@ public class SourceFile {
 		for (TypeDeclaration typeDeclaration : typeDeclarations) {
 			Type type = new Type(this, typeDeclaration);
 			this.types.add(type);
+		}
+	}
+
+	private void searchForEnums() {
+		EnumDeclarationCollector visitor = new EnumDeclarationCollector();
+		this.compilationUnit.accept(visitor);
+		List<EnumDeclaration> enumDeclarations = visitor.getNodesCollected();
+		for (EnumDeclaration enumDeclaration : enumDeclarations) {
 		}
 	}
 	

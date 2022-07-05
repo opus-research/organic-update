@@ -27,17 +27,37 @@ public class GodClassTest {
 	public void ccTest() throws Exception {
 		Type blobType = TypeLoader.loadOne(new File("test/br/pucrio/opus/smells/tests/dummy/BlobClassSample.java"));
 		GenericCollector.collectTypeAndMethodsMetricValues(blobType);
-		
+
 		Type mlType = TypeLoader.loadOne(new File("test/br/pucrio/opus/smells/tests/dummy/MethodLocality.java"));
 		GenericCollector.collectTypeAndMethodsMetricValues(mlType);
-		
+
 		GodClass smellDetector = new GodClass();
 		List<Smell> smells = smellDetector.detect(blobType);
 		Smell smell = smells.get(0);
 		Assert.assertEquals(1, smells.size());
 		Assert.assertEquals(SmellName.GodClass, smell.getName());
-		
+
 		smells = smellDetector.detect(mlType);
 		Assert.assertEquals(0, smells.size());
+	}
+
+
+	@Test
+	public void wmcTest() throws Exception {
+		Type godClass = TypeLoader.loadOne(new File("test/br/pucrio/opus/smells/tests/dummy/GodClassFirstStrategy.java"));
+		GenericCollector.collectTypeAndMethodsMetricValues(godClass);
+
+		GodClass smellDetector = new GodClass();
+		List<Smell> smells = smellDetector.detect(godClass);
+		Smell smell = smells.get(0);
+		Assert.assertEquals(1, smells.size());
+		Assert.assertEquals(SmellName.GodClass, smell.getName());
+
+	}
+
+
+	@Test
+	public void tccTest() throws Exception {
+
 	}
 }
