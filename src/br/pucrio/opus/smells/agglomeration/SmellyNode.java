@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.pucrio.opus.smells.resources.Resource;
+import com.google.gson.annotations.Expose;
 
 public class SmellyNode {
 
-	private Resource resource;
+	@Expose	private Resource resource;
 	
 	private transient List<SmellyEdge> outgoingEdges;
 	
 	private transient List<SmellyEdge> incomingEdges;
-	
-	private String resourceFQN;
+
+	@Expose private String resourceFQN;
 
 	public SmellyNode(Resource resource) {
 		this.resource = resource;

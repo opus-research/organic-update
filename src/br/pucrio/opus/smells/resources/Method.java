@@ -3,6 +3,7 @@ package br.pucrio.opus.smells.resources;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.annotations.Expose;
 import org.eclipse.jdt.core.dom.IBinding;
 import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -13,8 +14,8 @@ import br.pucrio.opus.smells.ast.visitors.MethodInvocationVisitor;
 import br.pucrio.opus.smells.graph.CallGraph;
 
 public class Method extends Resource {
-	
-	private List<String> parametersTypes;
+
+	@Expose	private List<String> parametersTypes;
 	
 	public IMethodBinding getBinding() {
 		MethodDeclaration declaration = (MethodDeclaration)this.getNode(); 

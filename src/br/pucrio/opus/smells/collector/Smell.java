@@ -1,17 +1,19 @@
 package br.pucrio.opus.smells.collector;
 
+import com.google.gson.annotations.Expose;
+
 public class Smell {
 
-	private SmellName name;
-	
-	private String reason;
+	@Expose	private SmellName name;
+
+	@Expose private String reason;
 	
 	/**
 	 * Line of code where the smell starts to appear
 	 */
-	private Integer startingLine;
-	
-	private Integer endingLine;
+	@Expose private Integer startingLine;
+
+	@Expose private Integer endingLine;
 	
 	public Smell(SmellName name) {
 		this.name = name;

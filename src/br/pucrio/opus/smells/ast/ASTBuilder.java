@@ -26,14 +26,14 @@ public class ASTBuilder {
 		Arrays.fill(this.encoding, "UTF-8");
 		this.sourcePaths.clone();
 		options = JavaCore.getOptions();
-		options.put(JavaCore.COMPILER_COMPLIANCE, JavaCore.VERSION_11);
-		options.put(JavaCore.COMPILER_CODEGEN_TARGET_PLATFORM, JavaCore.VERSION_11);
-		options.put(JavaCore.COMPILER_SOURCE, JavaCore.VERSION_11);
-		JavaCore.setComplianceOptions(JavaCore.VERSION_11, options);
+		options.put(JavaCore.COMPILER_COMPLIANCE, JavaCore.VERSION_17);
+		options.put(JavaCore.COMPILER_CODEGEN_TARGET_PLATFORM, JavaCore.VERSION_17);
+		options.put(JavaCore.COMPILER_SOURCE, JavaCore.VERSION_17);
+		JavaCore.setComplianceOptions(JavaCore.VERSION_17, options);
 	}
 
 	public ASTParser create() {
-		ASTParser parser = ASTParser.newParser(AST.JLS11);
+		ASTParser parser = ASTParser.newParser(AST.JLS17);
 		parser.setCompilerOptions(this.options);
 		parser.setResolveBindings(true);
 		parser.setBindingsRecovery(true);

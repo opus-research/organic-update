@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.annotations.Expose;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 
@@ -16,7 +17,7 @@ public class SourceFile {
 
 	private transient File file;
 
-	private String fileRelativePath;
+	@Expose	private String fileRelativePath;
 	
 	private transient CompilationUnit compilationUnit;
 	

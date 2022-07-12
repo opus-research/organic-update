@@ -4,10 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import org.apache.commons.cli.ParseException;
 
@@ -22,7 +19,6 @@ import br.pucrio.opus.smells.agglomeration.SmellyGraphBuilder;
 import br.pucrio.opus.smells.collector.ClassLevelSmellDetector;
 import br.pucrio.opus.smells.collector.MethodLevelSmellDetector;
 import br.pucrio.opus.smells.collector.Smell;
-import br.pucrio.opus.smells.gson.ObservableExclusionStrategy;
 import br.pucrio.opus.smells.metrics.MethodMetricValueCollector;
 import br.pucrio.opus.smells.metrics.TypeMetricValueCollector;
 import br.pucrio.opus.smells.resources.JavaFilesFinder;
@@ -93,10 +89,10 @@ public class Organic {
 		System.out.println("Saving smells file...");
 
 		GsonBuilder builder = new GsonBuilder();
-		builder.addSerializationExclusionStrategy(new ObservableExclusionStrategy());
 		builder.disableHtmlEscaping();
 		builder.setPrettyPrinting();
 		builder.serializeNulls();
+		builder.excludeFieldsWithoutExposeAnnotation();
 
 		Gson gson = builder.create();
 		gson.toJson(smellyTypes, writer);
@@ -110,10 +106,10 @@ public class Organic {
 		System.out.println("Saving agglomeration file...");
 
 		GsonBuilder builder = new GsonBuilder();
-		builder.addSerializationExclusionStrategy(new ObservableExclusionStrategy());
 		builder.disableHtmlEscaping();
 		builder.setPrettyPrinting();
 		builder.serializeNulls();
+		builder.excludeFieldsWithoutExposeAnnotation();
 
 		Gson gson = builder.create();
 		gson.toJson(agglomerations, writer);
