@@ -26,18 +26,18 @@ public class WMCTest {
 	@Test
 	public void anonymousClassTest() throws IOException {
 		Double wmc = getWMC("AnonymousClass.java");
-		Assert.assertEquals(new Double(5), wmc);
+		Assert.assertEquals(Double.valueOf(5), wmc);
 	}
 	
 	@Test
 	public void emptyClassTest() throws IOException {
 		Double wmc = getWMC("EmptyClass.java");
-		Assert.assertEquals(new Double(0), wmc);
+		Assert.assertEquals(Double.valueOf(0), wmc);
 	}
 	
 	@Test
 	public void ccTest() throws IOException {
 		Double wmc = getWMC("CC.java");
-		Assert.assertEquals(new Double(108), wmc);
+		Assert.assertEquals(Double.valueOf(108), wmc);
 	}
 }

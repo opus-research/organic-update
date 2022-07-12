@@ -49,27 +49,27 @@ private CompilationUnit compilationUnit;
 	public void superLocalMethodTest() {
 		MethodDeclaration decl = findMethodByName("superLocal");
 		MethodParameterCountCalculator calculator = new MethodParameterCountCalculator();
-		Assert.assertEquals(new Double(0), calculator.getValue(decl));
+		Assert.assertEquals(Double.valueOf(0), calculator.getValue(decl));
 	}
 	
 	@Test
 	public void superForeignMethodTest() {
 		MethodDeclaration decl = findMethodByName("superForeign");
 		MethodParameterCountCalculator calculator = new MethodParameterCountCalculator();
-		Assert.assertEquals(new Double(1), calculator.getValue(decl));
+		Assert.assertEquals(Double.valueOf(1), calculator.getValue(decl));
 	}
 	
 	@Test
 	public void moreLocalMethodTest() {
 		MethodDeclaration decl = findMethodByName("moreLocal");
 		MethodParameterCountCalculator calculator = new MethodParameterCountCalculator();
-		Assert.assertEquals(new Double(2), calculator.getValue(decl));
+		Assert.assertEquals(Double.valueOf(2), calculator.getValue(decl));
 	}
 	
 	@Test
 	public void moreForeignMethodTest() {
 		MethodDeclaration decl = findMethodByName("moreForeign");
 		MethodParameterCountCalculator calculator = new MethodParameterCountCalculator();
-		Assert.assertEquals(new Double(3), calculator.getValue(decl));
+		Assert.assertEquals(Double.valueOf(3), calculator.getValue(decl));
 	}
 }

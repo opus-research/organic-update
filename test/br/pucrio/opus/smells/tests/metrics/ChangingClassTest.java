@@ -48,7 +48,7 @@ public class ChangingClassTest {
 		Method method = type.findMethodByName(methodName);
 		ChangingClassesCalculator calc = new ChangingClassesCalculator();
 		Double actual = calc.getValue(method.getNode());
-		Assert.assertEquals(new Double(extectedCC), actual);
+		Assert.assertEquals(Double.valueOf(extectedCC), actual);
 	}
 	
 	@Test

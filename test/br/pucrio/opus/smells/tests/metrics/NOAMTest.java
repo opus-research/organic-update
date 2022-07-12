@@ -26,24 +26,24 @@ public class NOAMTest {
 	@Test
 	public void anonymousClassTest() throws IOException {
 		Double noam = getNOAM("AnonymousClass.java");
-		Assert.assertEquals(new Double(0), noam);
+		Assert.assertEquals(Double.valueOf(0), noam);
 	}
 	
 	@Test
 	public void emptyClassTest() throws IOException {
 		Double noam = getNOAM("EmptyClass.java");
-		Assert.assertEquals(new Double(0), noam);
+		Assert.assertEquals(Double.valueOf(0), noam);
 	}
 	
 	@Test
 	public void ccTest() throws IOException {
 		Double noam = getNOAM("CC.java");
-		Assert.assertEquals(new Double(0), noam);
+		Assert.assertEquals(Double.valueOf(0), noam);
 	}
 	
 	@Test
 	public void assessorsTest() throws IOException {
 		Double noam = getNOAM("Assessors.java");
-		Assert.assertEquals(new Double(9), noam);
+		Assert.assertEquals(Double.valueOf(9), noam);
 	}
 }
