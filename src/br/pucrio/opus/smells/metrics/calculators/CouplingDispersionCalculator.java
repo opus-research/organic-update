@@ -12,7 +12,7 @@ public class CouplingDispersionCalculator extends CouplingIntensityCalculator {
 		if (cint == null || cint == 0) {
 			return 0d;
 		}
-		Double differentClassses = new Double(super.methodCalls.keySet().size());
+		Double differentClassses = Double.valueOf(super.methodCalls.keySet().size());
 		return differentClassses/cint;
 	}
 

@@ -27,7 +27,7 @@ public class ChangingMethodsCalculator extends MetricValueCalculator {
 		
 		CallGraph callGraph = CallGraph.getInstance();
 		Set<IMethodBinding> callers = callGraph.getCallers(binding);
-		return new Double(callers.size());
+		return Double.valueOf(callers.size());
 	}
 
 	@Override

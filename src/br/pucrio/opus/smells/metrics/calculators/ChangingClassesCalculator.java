@@ -40,7 +40,7 @@ public class ChangingClassesCalculator extends MetricValueCalculator {
 			}
 			typesOfCallers.add(typeBinding);
 		}
-		return new Double(typesOfCallers.size());
+		return Double.valueOf(typesOfCallers.size());
 	}
 
 	@Override

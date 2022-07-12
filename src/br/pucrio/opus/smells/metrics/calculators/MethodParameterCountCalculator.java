@@ -10,7 +10,7 @@ public class MethodParameterCountCalculator extends MetricValueCalculator {
 	@Override
 	protected Double computeValue(ASTNode target) {
 		MethodDeclaration declaration = (MethodDeclaration)target;
-		return new Double(declaration.parameters().size());
+		return Double.valueOf(declaration.parameters().size());
 	}
 
 	@Override

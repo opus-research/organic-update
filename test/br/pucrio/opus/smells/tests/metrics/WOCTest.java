@@ -26,24 +26,24 @@ public class WOCTest {
 	@Test
 	public void anonymousClassTest() throws IOException {
 		Double woc = getWOC("AnonymousClass.java");
-		Assert.assertEquals(new Double(1), woc);
+		Assert.assertEquals(Double.valueOf(1), woc);
 	}
 	
 	@Test
 	public void emptyClassTest() throws IOException {
 		Double woc = getWOC("EmptyClass.java");
-		Assert.assertEquals(new Double(0), woc);
+		Assert.assertEquals(Double.valueOf(0), woc);
 	}
 	
 	@Test
 	public void ccTest() throws IOException {
 		Double woc = getWOC("CC.java");
-		Assert.assertEquals(new Double(1), woc);
+		Assert.assertEquals(Double.valueOf(1), woc);
 	}
 	
 	@Test
 	public void assessorsTest() throws IOException {
 		Double woc = getWOC("Assessors.java");
-		Assert.assertEquals(new Double(2.0/11.0), woc);
+		Assert.assertEquals(Double.valueOf(2.0/11.0), woc);
 	}
 }
