@@ -16,10 +16,10 @@ public class BrainMethod extends SmellDetector {
 	
 	@Override
 	public List<Smell> detect(Resource resource) {
-		Double halfHighCLOC = Thresholds.getHighThreshold(MetricName.CLOC)/2;
+		Double halfHighCLOC = Thresholds.getHighThreshold(MetricName.CELOC)/2;
 		Double highCC = Thresholds.getHighThreshold(MetricName.CC);
 		
-		Double mloc = resource.getMetricValue(MetricName.MLOC);
+		Double mloc = resource.getMetricValue(MetricName.MELOC);
 		Double cc = resource.getMetricValue(MetricName.CC);
 		Double maxNesting = resource.getMetricValue(MetricName.MaxNesting);
 		Double noav = resource.getMetricValue(MetricName.NOAV);

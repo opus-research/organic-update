@@ -24,8 +24,8 @@ public class AggregateTest {
 		type = TypeLoader.loadOne(new File("test/br/pucrio/opus/smells/tests/dummy/MethodLocality.java"));
 		GenericCollector.collectTypeAndMethodsMetricValues(type);
 		
-		Assert.assertEquals(new Double(457.0), aggr.getAverageValue(MetricName.CLOC));
-		Assert.assertEquals(39, aggr.getAverageValue(MetricName.MLOC).intValue());
+		Assert.assertEquals(new Double(457.0), aggr.getAverageValue(MetricName.CELOC));
+		Assert.assertEquals(39, aggr.getAverageValue(MetricName.MELOC).intValue());
 		Assert.assertEquals(new Double(0.4347826086956521), aggr.getAverageValue(MetricName.ParameterCount));
 		Assert.assertEquals(new Double(0.14423076923076922), aggr.getAverageValue(MetricName.TCC));
 	}

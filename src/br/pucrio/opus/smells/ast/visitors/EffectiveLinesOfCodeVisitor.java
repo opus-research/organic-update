@@ -37,237 +37,237 @@ import org.eclipse.jdt.core.dom.TypeLiteral;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 import org.eclipse.jdt.core.dom.WhileStatement;
 
-public class LinesOfCodeVisitor extends ASTVisitor {
+public class EffectiveLinesOfCodeVisitor extends ASTVisitor {
 
-	private Integer loc;
+	private Integer eloc;
 	
-	public Integer getLoc() {
-		return loc;
+	public Integer getELoc() {
+		return eloc;
 	}
 	
-	public LinesOfCodeVisitor() {
-		this.loc = 0;
+	public EffectiveLinesOfCodeVisitor() {
+		this.eloc = 0;
 	}
 	
 	@Override
 	public boolean visit(AnnotationTypeDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(AnnotationTypeMemberDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(AnonymousClassDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(AssertStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(BreakStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(CatchClause node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(ContinueStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(DoStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(EnhancedForStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(EnumConstantDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(EnumDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(ExpressionStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(FieldDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(ForStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(IfStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(ImportDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(Initializer node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(LabeledStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(LambdaExpression node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(MarkerAnnotation node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(MethodDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(NormalAnnotation node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(PackageDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(ReturnStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(SingleMemberAnnotation node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(SuperConstructorInvocation node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(SwitchCase node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(SwitchStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(ThrowStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(TryStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(TypeDeclaration node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(TypeDeclarationStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(TypeLiteral node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 
 	@Override
 	public boolean visit(VariableDeclarationStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 
 	@Override
 	public boolean visit(WhileStatement node) {
-		loc++;
+		eloc++;
 		return true;
 	}
 

@@ -33,13 +33,13 @@ public class BrainClass extends SmellDetector {
 	
 	@Override
 	public List<Smell> detect(Resource resource) {
-		Double veryHighCloc = Thresholds.getVeryHighThreshold(MetricName.CLOC);
+		Double veryHighCloc = Thresholds.getVeryHighThreshold(MetricName.CELOC);
 		Double veryHighWMC = Thresholds.getVeryHighThreshold(MetricName.WMC);
 		
 		
 		Type type = (Type)resource;
 		Integer brainMethodCount = this.getBrainMethods(type).size();
-		Double loc = resource.getMetricValue(MetricName.CLOC);
+		Double loc = resource.getMetricValue(MetricName.CELOC);
 		Double wmc = resource.getMetricValue(MetricName.WMC);
 		Double tcc = resource.getMetricValue(MetricName.TCC);
 		

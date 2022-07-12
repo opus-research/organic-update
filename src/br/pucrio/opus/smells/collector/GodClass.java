@@ -17,7 +17,7 @@ public class GodClass extends SmellDetector {
 	@Override
 	public List<Smell> detect(Resource resource) {
 		AggregateMetricValues aggregate = AggregateMetricValues.getInstance();
-		Double classLOC = resource.getMetricValue(MetricName.CLOC);
+		Double classLOC = resource.getMetricValue(MetricName.CELOC);
 		Double classTCC = resource.getMetricValue(MetricName.TCC);
 		Double tccAvg = aggregate.getAverageValue(MetricName.TCC);
 		if (classLOC > 500 && classTCC < tccAvg) {

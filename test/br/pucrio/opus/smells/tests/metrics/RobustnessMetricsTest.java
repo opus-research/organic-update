@@ -109,7 +109,7 @@ public class RobustnessMetricsTest {
 
     @Test
     public void exceptionalLOCTest() {
-        ExceptionalLOCCalculator calc = new ExceptionalLOCCalculator();
+        ExceptionalELOCCalculator calc = new ExceptionalELOCCalculator();
         Assert.assertEquals(Double.valueOf(5), calc.getValue(findMethodByName("m21")));
         Assert.assertEquals(Double.valueOf(6), calc.getValue(findMethodByName("m22")));
         Assert.assertEquals(Double.valueOf(3), calc.getValue(findMethodByName("m23")));

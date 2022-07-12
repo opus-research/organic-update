@@ -17,8 +17,8 @@ public class LazyClass extends SmellDetector {
 	@Override
 	public List<Smell> detect(Resource resource) {
 		AggregateMetricValues aggregate = AggregateMetricValues.getInstance();
-		Double classLOC = resource.getMetricValue(MetricName.CLOC);
-		Double clocFirstQuartile = aggregate.getFirstQuartileValue(MetricName.CLOC);
+		Double classLOC = resource.getMetricValue(MetricName.CELOC);
+		Double clocFirstQuartile = aggregate.getFirstQuartileValue(MetricName.CELOC);
 		if (classLOC < clocFirstQuartile) {
 			StringBuilder builder = new StringBuilder();
 			builder.append("CLOC < " + clocFirstQuartile);

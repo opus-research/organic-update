@@ -6,7 +6,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 public class MethodMetricValueCollector extends MetricValueCollector {
 
 	public MethodMetricValueCollector(TypeDeclaration declaringClass) {
-		addCalculator(new MethodLOCCalculator());
+		addCalculator(new MethodELOCCalculator());
 		addCalculator(new CyclomaticComplexityCalculator());
 		addCalculator(new MethodParameterCountCalculator());
 		addCalculator(new MaxCallChainCalculator());
@@ -23,6 +23,6 @@ public class MethodMetricValueCollector extends MetricValueCollector {
 		addCalculator(new TryNoCatchFinallyCalculator());
 		addCalculator(new ThrownExceptionTypesCalculator());
 		addCalculator(new DummyExceptionHandlerCalculator());
-		addCalculator(new ExceptionalLOCCalculator());
+		addCalculator(new ExceptionalELOCCalculator());
 	}
 }
