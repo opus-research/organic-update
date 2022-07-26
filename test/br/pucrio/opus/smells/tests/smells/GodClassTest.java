@@ -45,7 +45,9 @@ public class GodClassTest {
 	@Test
 	public void wmcTest() throws Exception {
 		Type godClass = TypeLoader.loadOne(new File("test/br/pucrio/opus/smells/tests/dummy/GodClassFirstStrategy.java"));
+		Type normalClass = TypeLoader.loadOne(new File("test/br/pucrio/opus/smells/tests/dummy/AnonymousClass.java"));
 		GenericCollector.collectTypeAndMethodsMetricValues(godClass);
+		GenericCollector.collectTypeAndMethodsMetricValues(normalClass);
 
 		GodClass smellDetector = new GodClass();
 		List<Smell> smells = smellDetector.detect(godClass);
@@ -59,5 +61,17 @@ public class GodClassTest {
 	@Test
 	public void tccTest() throws Exception {
 
+		Type godClass = TypeLoader.loadOne(new File("test/br/pucrio/opus/smells/tests/dummy/GodClassFirstStrategy.java"));
+		Type normalClass = TypeLoader.loadOne(new File("test/br/pucrio/opus/smells/tests/dummy/AnonymousClass.java"));
+		Type normalClass2 = TypeLoader.loadOne(new File("test/br/pucrio/opus/smells/tests/dummy/FieldAccessedByMethod.java"));
+		GenericCollector.collectTypeAndMethodsMetricValues(godClass);
+		GenericCollector.collectTypeAndMethodsMetricValues(normalClass);
+		GenericCollector.collectTypeAndMethodsMetricValues(normalClass2);
+
+		GodClass smellDetector = new GodClass();
+		List<Smell> smells = smellDetector.detect(godClass);
+		Smell smell = smells.get(0);
+		Assert.assertEquals(1, smells.size());
+		Assert.assertEquals(SmellName.GodClass, smell.getName());
 	}
 }
