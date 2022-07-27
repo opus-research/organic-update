@@ -23,7 +23,6 @@ public class GodClass extends SmellDetector {
 		Double methodWMC = resource.getMetricValue(MetricName.WMC);
 		Double wmcAvg = aggregate.getAverageValue(MetricName.WMC);
 
-		//(CLOC > 500 OR WMC > WMCAvg)  AND (TCC < TCCAvg)
 		if ((classLOC > 500 || methodWMC > wmcAvg) && (classTCC < tccAvg)) {
 			StringBuilder builder = new StringBuilder();
 			builder.append("CLOC > " + 500);
