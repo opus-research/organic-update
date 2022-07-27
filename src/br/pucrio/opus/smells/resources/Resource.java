@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 
+import com.google.gson.annotations.Expose;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 
@@ -15,18 +16,17 @@ import br.pucrio.opus.smells.collector.SmellName;
 import br.pucrio.opus.smells.metrics.MetricName;
 
 public abstract class Resource extends Observable {
-	
-	private SourceFile sourceFile;
-	
-	private Map<MetricName, Double> metricsValues;
-	
-	private String fullyQualifiedName;
-	
-	private List<Smell> smells;
+	@Expose private SourceFile sourceFile;
+
+	@Expose private Map<MetricName, Double> metricsValues;
+
+	@Expose private String fullyQualifiedName;
+
+	@Expose private List<Smell> smells;
 	
 	private transient ASTNode node;
-	
-	private String kind;
+
+	@Expose private String kind;
 	
 	public Resource(SourceFile sourceFile, ASTNode node) {
 		this.metricsValues = new HashMap<>();

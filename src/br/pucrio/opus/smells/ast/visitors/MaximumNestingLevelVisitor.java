@@ -94,7 +94,7 @@ public class MaximumNestingLevelVisitor extends ASTVisitor {
 	}
 	
 	public Double getMNL(){
-		return new Double(MNL);
+		return Double.valueOf(MNL);
 	}
 	
 	private void updateMNL(){

@@ -51,22 +51,22 @@ public class MaxNestingTest {
 	@Test
 	public void ccTest() {
 		MethodDeclaration decl = findMethodByName("cc2");
-		Assert.assertEquals(new Double(1), getMaxNesting(decl));
+		Assert.assertEquals(Double.valueOf(1), getMaxNesting(decl));
 		
 		decl = findMethodByName("cc3");
-		Assert.assertEquals(new Double(2), getMaxNesting(decl));
+		Assert.assertEquals(Double.valueOf(2), getMaxNesting(decl));
 		
 		decl = findMethodByName("cc4");
-		Assert.assertEquals(new Double(3), getMaxNesting(decl));
+		Assert.assertEquals(Double.valueOf(3), getMaxNesting(decl));
 		
 		decl = findMethodByName("cc5");
-		Assert.assertEquals(new Double(3), getMaxNesting(decl));
+		Assert.assertEquals(Double.valueOf(3), getMaxNesting(decl));
 		
 		decl = findMethodByName("cc6");
-		Assert.assertEquals(new Double(3), getMaxNesting(decl));
+		Assert.assertEquals(Double.valueOf(3), getMaxNesting(decl));
 		
 		decl = findMethodByName("cc1");
-		Assert.assertEquals(new Double(0), getMaxNesting(decl));
+		Assert.assertEquals(Double.valueOf(0), getMaxNesting(decl));
 	}
 
 }

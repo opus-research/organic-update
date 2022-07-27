@@ -7,7 +7,7 @@ public class TypeMetricValueCollector extends MetricValueCollector {
 	public TypeMetricValueCollector() {
 		addCalculator(new TCCMetricValueCalculator());
 		addCalculator(new PublicFieldCountCalculator());
-		addCalculator(new ClassLOCCalculator());
+		addCalculator(new ClassELOCCalculator());
 		addCalculator(new OverrideRatioCalculator());
 		addCalculator(new IsClassAbstract());
 		addCalculator(new NOAMCalculator());

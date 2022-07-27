@@ -50,25 +50,25 @@ public class CDISPTest {
 	@Test
 	public void highCintTest() {
 		MethodDeclaration decl = findMethodByName("highCint");
-		Assert.assertEquals(new Double(2.0/5), getCDISP(decl));
+		Assert.assertEquals(Double.valueOf(2.0/5), getCDISP(decl));
 	}
 	
 	@Test
 	public void lowCintTest() {
 		MethodDeclaration decl = findMethodByName("lowCint");
-		Assert.assertEquals(new Double(3/3), getCDISP(decl));
+		Assert.assertEquals(Double.valueOf(3/3), getCDISP(decl));
 	}
 	
 	@Test
 	public void dummy1Test() {
 		MethodDeclaration decl = findMethodByName("dummy1");
-		Assert.assertEquals(new Double(0), getCDISP(decl));
+		Assert.assertEquals(Double.valueOf(0), getCDISP(decl));
 	}
 	
 	@Test
 	public void cint1Test() {
 		MethodDeclaration decl = findMethodByName("cint1");
-		Assert.assertEquals(new Double(1), getCDISP(decl));
+		Assert.assertEquals(Double.valueOf(1), getCDISP(decl));
 	}
 
 }

@@ -1,8 +1,8 @@
 package br.pucrio.opus.smells.metrics;
 
 public enum MetricName {
-	CLOC("ClassLinesOfCode"),
-	MLOC("MethodLinesOfCode"),
+	CELOC("ClassEffectiveLinesOfCode"),
+	MELOC("MethodEffectiveLinesOfCode"),
 	CC("CyclomaticComplexity"),
 	IsAbstract,
 	MaxCallChain,

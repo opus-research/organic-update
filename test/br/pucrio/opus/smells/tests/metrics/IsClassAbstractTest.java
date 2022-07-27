@@ -28,7 +28,7 @@ public class IsClassAbstractTest {
 		List<TypeDeclaration> types = getTypes(new File("test/br/pucrio/opus/smells/tests/dummy/FieldAccessedByMethod.java"));
 		TypeDeclaration node = types.get(0);
 		IsClassAbstract calc = new IsClassAbstract();
-		Assert.assertEquals(new Double(0), calc.getValue(node));
+		Assert.assertEquals(Double.valueOf(0), calc.getValue(node));
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class IsClassAbstractTest {
 		List<TypeDeclaration> types = getTypes(new File("test/br/pucrio/opus/smells/tests/dummy/MiscStructures.java"));
 		TypeDeclaration node = types.get(0);
 		IsClassAbstract calc = new IsClassAbstract();
-		Assert.assertEquals(new Double(0), calc.getValue(node));
+		Assert.assertEquals(Double.valueOf(0), calc.getValue(node));
 	}
 	
 	@Test
@@ -44,6 +44,6 @@ public class IsClassAbstractTest {
 		List<TypeDeclaration> types = getTypes(new File("test/br/pucrio/opus/smells/tests/dummy/AnonymousClass.java"));
 		TypeDeclaration node = types.get(0);
 		IsClassAbstract calc = new IsClassAbstract();
-		Assert.assertEquals(new Double(1), calc.getValue(node));
+		Assert.assertEquals(Double.valueOf(1), calc.getValue(node));
 	}
 }

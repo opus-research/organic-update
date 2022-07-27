@@ -28,7 +28,7 @@ public class OverrideRatioCalculatorTest {
 		List<TypeDeclaration> types = getTypes(new File("test/br/pucrio/opus/smells/tests/dummy/FieldAccessedByMethod.java"));
 		TypeDeclaration node = types.get(0);
 		OverrideRatioCalculator calc = new OverrideRatioCalculator();
-		Assert.assertEquals(new Double(2d/6d), calc.getValue(node)); //method a and the default constructor are overridden
+		Assert.assertEquals(Double.valueOf(2d/6d), calc.getValue(node)); //method a and the default constructor are overridden
 	}
 	
 	@Test

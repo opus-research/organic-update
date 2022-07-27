@@ -50,36 +50,36 @@ public class NoavTest {
 	@Test
 	public void noneTest() {
 		MethodDeclaration decl = findMethodByName("none");
-		Assert.assertEquals(new Double(0), getNoav(decl));
+		Assert.assertEquals(Double.valueOf(0), getNoav(decl));
 	}
 
 	@Test
 	public void noneWihLocalTest() {
 		MethodDeclaration decl = findMethodByName("noneWihLocal");
-		Assert.assertEquals(new Double(1), getNoav(decl));
+		Assert.assertEquals(Double.valueOf(1), getNoav(decl));
 	}
 	
 	@Test
 	public void oneTest() {
 		MethodDeclaration decl = findMethodByName("one");
-		Assert.assertEquals(new Double(1), getNoav(decl));
+		Assert.assertEquals(Double.valueOf(1), getNoav(decl));
 	}
 	
 	@Test
 	public void twoTest() {
 		MethodDeclaration decl = findMethodByName("two");
-		Assert.assertEquals(new Double(2), getNoav(decl));
+		Assert.assertEquals(Double.valueOf(2), getNoav(decl));
 	}
 	
 	@Test
 	public void threeTest() {
 		MethodDeclaration decl = findMethodByName("three");
-		Assert.assertEquals(new Double(3), getNoav(decl));
+		Assert.assertEquals(Double.valueOf(3), getNoav(decl));
 	}
 	
 	@Test
 	public void threePlusOneExternalTest() {
 		MethodDeclaration decl = findMethodByName("threePlusOneExternal");
-		Assert.assertEquals(new Double(5), getNoav(decl));
+		Assert.assertEquals(Double.valueOf(5), getNoav(decl));
 	}
 }

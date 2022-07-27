@@ -28,7 +28,7 @@ public class TccCalculatorTest {
 		List<TypeDeclaration> types = getTypes(new File("test/br/pucrio/opus/smells/tests/dummy/FieldAccessedByMethod.java"));
 		TypeDeclaration node = types.get(0);
 		TCCMetricValueCalculator calc = new TCCMetricValueCalculator();
-		Assert.assertEquals(new Double(2.0d/3d), calc.getValue(node));
+		Assert.assertEquals(Double.valueOf(2.0d/3d), calc.getValue(node));
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class TccCalculatorTest {
 		List<TypeDeclaration> types = getTypes(new File("test/br/pucrio/opus/smells/tests/dummy/MiscStructures.java"));
 		TypeDeclaration node = types.get(0);
 		TCCMetricValueCalculator calc = new TCCMetricValueCalculator();
-		Assert.assertEquals(new Double(0), calc.getValue(node));
+		Assert.assertEquals(Double.valueOf(0), calc.getValue(node));
 	}
 	
 	@Test
@@ -44,6 +44,6 @@ public class TccCalculatorTest {
 		List<TypeDeclaration> types = getTypes(new File("test/br/pucrio/opus/smells/tests/dummy/AnonymousClass.java"));
 		TypeDeclaration node = types.get(0);
 		TCCMetricValueCalculator calc = new TCCMetricValueCalculator();
-		Assert.assertEquals(new Double(1.0d/3d), calc.getValue(node));
+		Assert.assertEquals(Double.valueOf(1.0d/3d), calc.getValue(node));
 	}
 }

@@ -2,7 +2,9 @@ package br.pucrio.opus.smells.resources;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.google.gson.annotations.Expose;
 import org.eclipse.jdt.core.dom.IBinding;
 import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -13,8 +15,10 @@ import br.pucrio.opus.smells.ast.visitors.MethodInvocationVisitor;
 import br.pucrio.opus.smells.graph.CallGraph;
 
 public class Method extends Resource {
-	
-	private List<String> parametersTypes;
+
+	@Expose	private List<String> parametersTypes;
+
+	@Expose private String methodSignature;
 	
 	public IMethodBinding getBinding() {
 		MethodDeclaration declaration = (MethodDeclaration)this.getNode(); 
@@ -80,23 +84,44 @@ public class Method extends Resource {
 		}
 
 	}
+
+	private String getTypeParamsString(MethodDeclaration node){
+		String result = "";
+		try	{
+			final List typeParameters = node.typeParameters();
+			if (typeParameters.size() > 0){
+				result = typeParameters.stream()
+						.map(Object::toString)
+						.collect(Collectors.joining(","))
+						.toString();
+			}
+		}
+		catch (Exception e){
+			//Result will be blank.
+		}
+		return result;
+	}
 	
 	public Method(SourceFile sourceFile, MethodDeclaration node) {
 		super(sourceFile, node);
 		this.registerOnCallGraph(node);
 		
 		this.parametersTypes = new ArrayList<>();
-		for(Object obj : node.parameters()) {
-			SingleVariableDeclaration declaration = (SingleVariableDeclaration)obj;
+		for(SingleVariableDeclaration declaration : (List<SingleVariableDeclaration>)node.parameters()) {
 			declaration.getName();
-			parametersTypes.add(declaration.getType().toString());
+			String parameterType = declaration.getType().toString();
+			parametersTypes.add(declaration.isVarargs() ? parameterType + "..." : parameterType);
 		}
 		
 		IBinding binding = node.resolveBinding();
 		if (binding != null) {
 			IMethodBinding methodBinding = (IMethodBinding)binding;
 			String classFqn = methodBinding.getDeclaringClass().getQualifiedName();
-			setFullyQualifiedName(classFqn + "." + node.getName());
+			String methodFqn = classFqn + "." + node.getName().toString();
+			setFullyQualifiedName(methodFqn);
+			this.methodSignature = methodFqn +
+					"<" + getTypeParamsString(node) + ">" +
+					"(" + String.join(", ", this.getParametersTypes()) + ")";
 		}
 	}
 	

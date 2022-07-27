@@ -57,7 +57,7 @@ public class LCOM3CalculatorTest {
 	public void testLCOM3NotEmptyClass()  throws IOException{
 		Double obtained = getLCOM3("DummyLCOM");
 		
-		Assert.assertEquals(new Double(1.071428571),obtained, DELTA);
+		Assert.assertEquals(Double.valueOf(1.071428571),obtained, DELTA);
 		
 	}
 	
@@ -68,7 +68,7 @@ public class LCOM3CalculatorTest {
 	public void testLCOM3tEmptyClass()  throws IOException{
 		Double obtained = getLCOM3("EmptyClass");
 		
-		Assert.assertEquals(new Double(0),obtained, DELTA);
+		Assert.assertEquals(Double.valueOf(0),obtained, DELTA);
 		
 	}
 	
@@ -79,7 +79,7 @@ public class LCOM3CalculatorTest {
 	public void testLCOM3DummyDad()  throws IOException{
 		Double obtained = getLCOM3("DummyDad");
 		
-		Assert.assertEquals(new Double(0.0),obtained, DELTA);
+		Assert.assertEquals(Double.valueOf(0.0),obtained, DELTA);
 		
 	}
 	
@@ -90,7 +90,7 @@ public class LCOM3CalculatorTest {
 	public void testLCOM2DummySon()  throws IOException{
 		Double obtained = getLCOM3("DummySon");
 		
-		Assert.assertEquals(new Double(1.0),obtained, DELTA);
+		Assert.assertEquals(Double.valueOf(1.0),obtained, DELTA);
 		
 	}
 	
@@ -101,7 +101,7 @@ public class LCOM3CalculatorTest {
 	public void testLCOM3DummyGrandSon()  throws IOException{
 		Double obtained = getLCOM3("DummyGrandSon");
 		
-		Assert.assertEquals(new Double(0.0),obtained, DELTA);
+		Assert.assertEquals(Double.valueOf(0.0),obtained, DELTA);
 		
 	}
 

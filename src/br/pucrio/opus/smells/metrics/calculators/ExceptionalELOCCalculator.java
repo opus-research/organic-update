@@ -1,6 +1,6 @@
 package br.pucrio.opus.smells.metrics.calculators;
 
-import br.pucrio.opus.smells.ast.visitors.LinesOfCodeVisitor;
+import br.pucrio.opus.smells.ast.visitors.EffectiveLinesOfCodeVisitor;
 import br.pucrio.opus.smells.ast.visitors.TryStatementCollector;
 import br.pucrio.opus.smells.metrics.MetricName;
 import org.eclipse.jdt.core.dom.ASTNode;
@@ -8,7 +8,7 @@ import org.eclipse.jdt.core.dom.Initializer;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TryStatement;
 
-public class ExceptionalLOCCalculator extends MetricValueCalculator {
+public class ExceptionalELOCCalculator extends MetricValueCalculator {
 
     private boolean hasTryParent(ASTNode node) {
         if(node == null || node instanceof Initializer || node instanceof MethodDeclaration)
@@ -27,9 +27,9 @@ public class ExceptionalLOCCalculator extends MetricValueCalculator {
         target.accept(visitor);
         for (TryStatement statement : visitor.getNodesCollected()){
             if (!hasTryParent(statement.getParent())) {
-                LinesOfCodeVisitor visitor2 = new LinesOfCodeVisitor();
+                EffectiveLinesOfCodeVisitor visitor2 = new EffectiveLinesOfCodeVisitor();
                 target.accept(visitor2);
-                result += visitor2.getLoc().doubleValue();
+                result += visitor2.getELoc().doubleValue();
             }
         }
         return result;

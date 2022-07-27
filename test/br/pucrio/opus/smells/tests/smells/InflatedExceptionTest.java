@@ -1,18 +1,11 @@
 package br.pucrio.opus.smells.tests.smells;
 
-import br.pucrio.opus.smells.ast.visitors.MethodCollector;
-import br.pucrio.opus.smells.ast.visitors.TypeDeclarationCollector;
 import br.pucrio.opus.smells.collector.InflatedException;
 import br.pucrio.opus.smells.collector.Smell;
 import br.pucrio.opus.smells.resources.Type;
-import br.pucrio.opus.smells.tests.util.CompilationUnitLoader;
 import br.pucrio.opus.smells.tests.util.GenericCollector;
 import br.pucrio.opus.smells.tests.util.TypeLoader;
-import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;

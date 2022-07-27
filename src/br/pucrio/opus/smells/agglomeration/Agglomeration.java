@@ -1,11 +1,13 @@
 package br.pucrio.opus.smells.agglomeration;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class Agglomeration {
 
-	private Set<SmellyNode> nodes;
+	@Expose	private Set<SmellyNode> nodes;
 	
 	public Agglomeration() {
 		this.nodes = new HashSet<>();

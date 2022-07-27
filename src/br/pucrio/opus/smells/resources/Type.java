@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.google.gson.annotations.Expose;
 import org.eclipse.jdt.core.dom.IBinding;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -15,8 +16,8 @@ import br.pucrio.opus.smells.ast.visitors.MethodCollector;
 
 public class Type extends Resource {
 
-	private List<Method> methods;
-	
+	@Expose	private List<Method> methods;
+
 	private transient Set<Type> children;
 	
 	public TypeDeclaration getNodeAsTypeDeclaration() {
