@@ -18,19 +18,23 @@ public class GodClass extends SmellDetector {
 	public List<Smell> detect(Resource resource) {
 		AggregateMetricValues aggregate = AggregateMetricValues.getInstance();
 		Double classLOC = resource.getMetricValue(MetricName.CELOC);
+		Double classLOCAvg = aggregate.getAverageValue(MetricName.CELOC);
 		Double classTCC = resource.getMetricValue(MetricName.TCC);
 		Double tccAvg = aggregate.getAverageValue(MetricName.TCC);
 		Double methodWMC = resource.getMetricValue(MetricName.WMC);
 		Double wmcAvg = aggregate.getAverageValue(MetricName.WMC);
+		Double thirdQuartileWmc = wmcAvg + (wmcAvg/2);
 
-		if ((classLOC > 500 || methodWMC > wmcAvg) && (classTCC < tccAvg)) {
+		if (classLOC >= classLOCAvg && methodWMC >= thirdQuartileWmc && (classTCC < tccAvg)) {
 			StringBuilder builder = new StringBuilder();
-			builder.append("CLOC > " + 500);
-			builder.append(", TCC " + classTCC);
+			builder.append("CLOC: " + classLOC);
+			builder.append("CLOC >= " + classLOCAvg);
+			builder.append(", TCC: " + classTCC);
 			builder.append(", TCC < " + tccAvg);
-			builder.append(", WMC " + methodWMC);
-			builder.append(", WMCAvg " + wmcAvg);
-			builder.append(", WMC > " + wmcAvg);
+			builder.append(", WMC: " + methodWMC);
+			builder.append(", WMCAvg: " + wmcAvg);
+			builder.append(", thirdQuartileWmc: " + thirdQuartileWmc);
+			builder.append(", WMC >= " + thirdQuartileWmc);
 			
 			Smell smell = super.createSmell(resource);
 			smell.setReason(builder.toString());
