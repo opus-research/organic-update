@@ -21,7 +21,7 @@ public class LongParameterList extends SmellDetector {
 		Double avgParameterCount = aggregate.getAverageValue(MetricName.ParameterCount);
 		if (methodParameterCount > avgParameterCount && methodParameterCount > 3) {
 			StringBuilder builder = new StringBuilder();
-			builder.append("PARAMETER_COUNT > " + avgParameterCount);
+			builder.append("PARAMETER_COUNT > " + (avgParameterCount > 3 ? avgParameterCount : "3"));
 			
 			Smell smell = super.createSmell(resource);
 			smell.setReason(builder.toString());

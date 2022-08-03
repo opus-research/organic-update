@@ -21,7 +21,7 @@ public class LongMethod extends SmellDetector {
 		Double avgMLOC = aggregate.getAverageValue(MetricName.MELOC);
 		if (methodLoc > avgMLOC && methodLoc > 30) {
 			StringBuilder builder = new StringBuilder();
-			builder.append("MLOC > " + avgMLOC);
+			builder.append("MLOC > " + (avgMLOC > 30 ? avgMLOC : "30"));
 			
 			Smell smell = super.createSmell(resource);
 			smell.setReason(builder.toString());
