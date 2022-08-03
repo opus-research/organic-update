@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'br.pucrio.opus.smells'
-version 'OPT'
+version 'v0.1.2'
 
 repositories {
     mavenCentral()
